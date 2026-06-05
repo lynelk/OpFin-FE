@@ -31,6 +31,14 @@ This document defines rules for AI-assisted development on this Next.js producti
 - When adding a new API method: add a typed implementation, add a mock implementation, and add a test in `src/lib/api/client.test.ts`.
 - Mock data in `src/lib/mock-data.ts` must use clearly fictional values (no real NINs, no real phone numbers, no real names).
 
+## Monitoring
+
+- `src/lib/monitoring.ts` is the only entry point for error reporting.
+- Call `initMonitoring()` once at app startup (e.g. root layout) to initialise Sentry when `NEXT_PUBLIC_SENTRY_DSN` is configured.
+- Use `captureError(error, context?)` in every `catch` block in Server Components and Server Actions. Never swallow errors silently in production paths.
+- Use `setUser({ id })` after login to attach a non-PII identifier to crash reports. Never pass email, phone, or name.
+- `@sentry/nextjs` is an optional peer dependency — the module falls back to `console.error` if not installed. Monitoring functions are safe to call unconditionally.
+
 ## Testing
 
 - `npm run test` runs Vitest.
@@ -61,3 +69,4 @@ All required variables are documented in `.env.example`. Add new variables there
 | `NEXT_PUBLIC_OPFIN_API_URL` | In production | Backend API base URL |
 | `NEXT_PUBLIC_USE_MOCK_API` | Dev only | Enable mock API responses |
 | `OPFIN_ENABLE_DEMO_SHORTCUTS` | Dev only | Enable demo shortcut flows |
+| `NEXT_PUBLIC_SENTRY_DSN` | Optional | Sentry DSN for production crash reporting |
