@@ -7,6 +7,13 @@ export default [
   {
     files: ["**/*.{ts,tsx}"],
     rules: {
+      "no-undef": "off",
+      "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }]
+    }
+  },
+  {
+    files: ["**/*.mjs", "**/*.cjs"],
+    rules: {
       "no-undef": "off"
     }
   },
