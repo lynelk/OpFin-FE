@@ -105,7 +105,7 @@ class LoanApplicationScreenState extends State<LoanApplicationScreen> {
                   Text(
                     "Provide the required information to continue with your loan request.",
                     style: TextStyle(
-                      color: Colors.black.withValues(alpha: 0.6),
+                      color: Colors.black.withOpacity(0.6),
                       fontSize: 14,
                     ),
                   ),
@@ -214,7 +214,7 @@ class LoanApplicationScreenState extends State<LoanApplicationScreen> {
         // --- LOADING OVERLAY ---
         if (_submitting)
           Container(
-            color: Colors.black.withValues(alpha: 0.3),
+            color: Colors.black.withOpacity(0.3),
             child: const Center(
               child: CircularProgressIndicator(color: Colors.black),
             ),

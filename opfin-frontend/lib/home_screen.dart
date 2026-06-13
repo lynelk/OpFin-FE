@@ -222,11 +222,11 @@ class _HomeWidgetState extends State<HomeWidget> {
               margin: const EdgeInsets.only(bottom: 24),
               decoration: BoxDecoration(
                 color: (_balance > 0 ? Colors.red : Colors.green)
-                    .withValues(alpha: .08),
+                    .withOpacity(.08),
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(
                   color: (_balance > 0 ? Colors.red : Colors.green)
-                      .withValues(alpha: .25),
+                      .withOpacity(.25),
                 ),
               ),
               child: Row(
@@ -479,9 +479,9 @@ class _QuickInfoCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
       decoration: BoxDecoration(
-        color: color.withValues(alpha: .08),
+        color: color.withOpacity(.08),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: color.withValues(alpha: .3)),
+        border: Border.all(color: color.withOpacity(.3)),
       ),
       child: Row(
         children: [

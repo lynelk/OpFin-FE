@@ -60,7 +60,7 @@ class LoanApplicationResultScreen extends StatelessWidget {
                 message,
                 style: TextStyle(
                   fontSize: 15,
-                  color: Colors.red.withValues(alpha: 0.9),
+                  color: Colors.red.withOpacity(0.9),
                 ),
                 textAlign: TextAlign.center,
               ),

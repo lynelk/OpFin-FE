@@ -111,7 +111,7 @@ class LoanApplicationsScreenState extends State<LoanApplicationsScreen> {
                   border: Border.all(color: Colors.black12),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withValues(alpha: .05),
+                      color: Colors.black.withOpacity(.05),
                       blurRadius: 6,
                       offset: const Offset(0, 3),
                     ),
