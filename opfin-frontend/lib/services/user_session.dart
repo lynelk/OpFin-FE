@@ -6,12 +6,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// Sensitive fields (token, IDs, PII) are stored in encrypted secure storage.
 /// Non-sensitive display fields (name, role, credit info) stay in SharedPreferences.
 class UserSession {
-  // `when_unlocked` requires the device to be unlocked before accessing keychain
+  // `whenUnlocked` requires the device to be unlocked before accessing keychain
   // items, which is the most restrictive option suitable for foreground use and
   // prevents background processes from reading sensitive data while locked.
-  static const _storage = FlutterSecureStorage(
+  static final _storage = FlutterSecureStorage(
     aOptions: AndroidOptions(encryptedSharedPreferences: true),
-    iOptions: IOSOptions(accessibility: KeychainAccessibility.when_unlocked),
+    iOptions: IOSOptions(accessibility: KeychainAccessibility.whenUnlocked),
   );
 
   // ── Secure-storage keys ──────────────────────────────────────────────────
